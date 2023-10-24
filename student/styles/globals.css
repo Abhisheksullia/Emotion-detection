@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-background  font-Playfair text-secondary box-border max-w-monitor mx-auto;
+  }
+}
+
+@layer utilities {
+  @variants responsive {
+    /* Chrome, Safari and Opera */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+
+    .no-scrollbar {
+      -ms-overflow-style: none; /* IE and Edge */
+      scrollbar-width: none; /* Firefox */
+    }
+
+    .baseClass {
+      @apply flex-1  mr-5 ml-5  mt-4 mb-5 flex flex-col gap-4 overflow-hidden;
+    }
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    /* Firefox */
+    input[type="number"] {
+      -moz-appearance: textfield;
+    }
+
+    select {
+      -webkit-appearance: none !important;
+      -moz-appearance: none !important;
+
+      width: 100%;
+      background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAUCAMAAACtdX32AAAAdVBMVEUAAAD///8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAhMdQaAAAAJ3RSTlMAAAECAwQGBwsOFBwkJTg5RUZ4eYCHkJefpaytrsXGy8zW3+Do8vNn0bsyAAAAYElEQVR42tXROwJDQAAA0Ymw1p9kiT+L5P5HVEi3qJn2lcPjtIuzUIJ/rhIGy762N3XaThqMN1ZPALsZPEzG1x8LrFL77DHBnEMxBewz0fJ6LyFHTPL7xhwzWYrJ9z22AqmQBV757MHfAAAAAElFTkSuQmCC);
+      background-position: 100%;
+      background-repeat: no-repeat;
+
+      padding: 0.5rem;
+      border-radius: 0;
+    }
+  }
+}
+
+@layer components {
+  .section {
+    @apply mb-8 lg:mb-12 2xl:mb-16 space-y-2 md:space-y-5;
+  }
+
+  .popupClass {
+    @apply fixed  max-w-6xl flex flex-col justify-between  text-secondary z-50 top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2;
+  }
+
+  .scrollableCards {
+    @apply flex relative gap-10 overflow-x-scroll rounded-md  no-scrollbar;
+  }
+
+  .loader div:first-child {
+    animation-delay: 0.1s;
+  }
+
+  .loader div:nth-child(2) {
+    animation-delay: 0.3s;
+  }
+
+  .loader div:nth-child(3) {
+    animation-delay: 0.5s;
+  }
+}

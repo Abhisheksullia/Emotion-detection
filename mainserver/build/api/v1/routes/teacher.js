@@ -1,0 +1,22 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var express_1 = __importDefault(require("express"));
+var admin_1 = require("../controllers/admin");
+var auth_1 = __importDefault(require("../middleware/auth"));
+var user_model_1 = require("../models/user.model");
+var userType_1 = __importDefault(require("../interfaces/userType"));
+var TeacherRouter = express_1.default.Router();
+TeacherRouter.post("/signup", admin_1.createTeacherHandler);
+TeacherRouter.post("/login", admin_1.loginTeacherHandler);
+TeacherRouter.post("/logout", admin_1.logoutTeacherHandler);
+TeacherRouter.get("/status", auth_1.default(user_model_1.User, userType_1.default.Teacher), admin_1.getStatusHandler);
+TeacherRouter.get("/dashboard", auth_1.default(user_model_1.User, userType_1.default.Teacher), admin_1.dashboardHandler);
+TeacherRouter.post("/create/meeting", auth_1.default(user_model_1.User, userType_1.default.Teacher), admin_1.createMeetingHandler);
+TeacherRouter.put("/end/meeting/:meetingId", auth_1.default(user_model_1.User, userType_1.default.Teacher), admin_1.endMeetingHandler);
+TeacherRouter.put("/cancel/meeting/:meetingId", auth_1.default(user_model_1.User, userType_1.default.Teacher), admin_1.cancelMeetingHandler);
+TeacherRouter.get("/meetings", auth_1.default(user_model_1.User, userType_1.default.Teacher), admin_1.meetingDetail);
+TeacherRouter.get("/meeting/users/:meetingId", auth_1.default(user_model_1.User, userType_1.default.Teacher), admin_1.meetingUserDetail);
+exports.default = TeacherRouter;

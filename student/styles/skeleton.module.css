@@ -1,0 +1,108 @@
+.container {
+  height: 60px;
+  width: 100%;
+}
+
+.body {
+  height: 100vh;
+  overflow-y: scroll;
+  background-color: white;
+}
+
+.margin {
+  margin: 0px 60px;
+}
+
+.banner {
+  height: 400px;
+  margin-bottom: 40px;
+  border-radius: 20px;
+}
+
+.flexContainer {
+  margin-top: 20px;
+  gap: 30px;
+  display: flex;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.gap {
+  margin: 60px 0px;
+}
+
+.subFlexItem {
+  align-items: center;
+  display: flex;
+  flex-shrink: 0;
+  flex-direction: column;
+  width: 200px;
+}
+
+.subHero {
+  align-self: stretch;
+  margin-bottom: 10px;
+  height: 120px;
+}
+
+.gridContainer {
+  margin-top: 20px;
+
+  row-gap: 60px;
+  display: grid;
+
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  row-gap: 40px;
+}
+
+.hero {
+  align-self: stretch;
+  margin-bottom: 10px;
+  height: 240px;
+}
+
+.flexGrid {
+  display: flex;
+  justify-content: space-between;
+}
+
+.rectangular {
+  height: 28px;
+  width: 40px;
+  border-radius: 8px;
+}
+
+.separator {
+  display: flex;
+  margin: 0px 60px;
+  justify-content: center;
+}
+
+.subFooter {
+  height: 340px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 60px;
+  margin-bottom: 40px;
+
+  background-color: #ebebeba0;
+}
+
+.footer {
+  height: 340px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #ebebeba0;
+}
+
+.lastGap {
+  margin: 0 60px;
+}

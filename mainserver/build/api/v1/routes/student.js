@@ -1,0 +1,20 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var express_1 = __importDefault(require("express"));
+var auth_1 = __importDefault(require("../middleware/auth"));
+var userType_1 = __importDefault(require("../interfaces/userType"));
+var student_1 = require("../controllers/student");
+var user_model_1 = require("../models/user.model");
+var StudentRouter = express_1.default.Router();
+StudentRouter.post("/signup", student_1.createStudentHandler);
+StudentRouter.post("/login", student_1.loginStudentHandler);
+StudentRouter.post("/logout", student_1.logoutStudentHandler);
+StudentRouter.post("/add/log", auth_1.default(user_model_1.User, userType_1.default.Student), student_1.meetingLogHandler);
+StudentRouter.put("/join/meeting", auth_1.default(user_model_1.User, userType_1.default.Student), student_1.joinMeetingHandler);
+StudentRouter.get("/status", auth_1.default(user_model_1.User, userType_1.default.Student), student_1.getStatusHandler);
+StudentRouter.get("/dashboard", auth_1.default(user_model_1.User, userType_1.default.Student), student_1.dashboardHandler);
+StudentRouter.get("/meetings", auth_1.default(user_model_1.User, userType_1.default.Student), student_1.meetingDetail);
+exports.default = StudentRouter;
